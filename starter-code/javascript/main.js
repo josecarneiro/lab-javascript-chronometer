@@ -8,7 +8,9 @@ const secUni = document.getElementById('sec-uni');
 const milDec = document.getElementById('mil-dec');
 const milUni = document.getElementById('mil-uni');
 
-function printTime() {}
+function printTime() {
+
+}
 
 function printMinutes() {}
 
@@ -20,20 +22,42 @@ function printSplit() {}
 
 function clearSplits() {}
 
-function setStopBtn() {}
+function setStopBtn() {
+  btnLeft.textContent = "STOP";
+  btnLeft.setAttribute("class", "btn stop");
+}
 
-function setSplitBtn() {}
+function setSplitBtn() {
+  btnRight.textContent = "SPLIT";
+  btnRight.setAttribute("class", "btn split");
+}
 
-function setStartBtn() {}
+function setStartBtn() {
+  btnLeft.textContent = "START";
+  btnLeft.setAttribute("class", "btn start");
+}
 
-function setResetBtn() {}
+function setResetBtn() {
+  btnRight.textContent = "RESET";
+  btnRight.setAttribute("class", "btn reset");
+}
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ..
+  if(btnLeft.classList.contains("start")) {
+    setSplitBtn();
+    setStopBtn();
+  } else {
+    setResetBtn();
+    setStartBtn();
+  }
 });
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ..
+  // if(btnRight.classList.contains("split")) {
+  //   setResetBtn();
+  // } else {
+  //   setSplitBtn();
+  // }
 });
