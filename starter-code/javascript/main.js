@@ -30,10 +30,39 @@ function setResetBtn() {}
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  // ..
-});
+
+
+
+  if (btnLeft.innerText === "START"){ 
+    chronometer.startClick(); 
+    btnLeft.innerText = "STOP"; 
+    btnLeft.className = "btn stop";
+
+  } else { 
+    chronometer.stopClick();
+    btnLeft.innerText = "START";
+    btnLeft.className = "btn start"; 
+  }
+}); 
 
 // Reset/Split Button
 btnRight.addEventListener('click', () => {
-  // ..
-});
+
+  if (btnRight.innerText === "RESET"){ 
+
+    btnRight.innerText = "SPLIT"; 
+    btnRight.className = "btn split";
+
+  } else { 
+    btnRight.innerText = "RESET";
+    btnRight.className = "btn reset";
+
+  }
+}); 
+
+// function (minutes, seconds) { 
+//   chronometer.getElementById('min-dec') = getMinutes();
+// }
+
+
+// console.log(chronometer);
