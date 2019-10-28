@@ -1,4 +1,5 @@
-const chronometer = new Chronometer();
+ const chronometer = new Chronometer()
+
 const btnLeft = document.getElementById('btn-left');
 const btnRight = document.getElementById('btn-right');
 const minDec = document.getElementById('min-dec');
