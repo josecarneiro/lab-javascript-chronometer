@@ -33,7 +33,7 @@ class Chronometer {
   }
 
   stopClick() {
-    clearInterval();
+    clearInterval(this.intervalId);
   }
 
   resetClick() {
