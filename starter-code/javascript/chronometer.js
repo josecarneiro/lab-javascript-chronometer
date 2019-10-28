@@ -1,33 +1,54 @@
+//clearInterval(intervalId)
+const splits = document.getElementById('splits');
+
 class Chronometer {
   constructor() {
-    // ..
+    this.currentTime = 0;
+    this.intervalId;
   }
 
-  // startClick() {
-  // ..
-  // }
+  startClick() {
+    this.intervalId = setInterval(() => {
+      this.currentTime += 1;
+    }, 1000);
+  }
 
-  // getMinutes() {
-  // ..
-  // }
+  getMinutes() {
+    let minutes = Math.floor(this.currentTime / 60);
+    return minutes  
+  }
 
-  // getSeconds() {
-  // ..
-  // }
+  getSeconds () {
+    let seconds = this.currentTime % 60
+    return seconds
+  }
 
-  // twoDigitsNumber() {
-  // ..
-  // }
+/*   getMilliseconds() {
+    let milliseconds = this.currentTime * 1000 / 10;
+    return milliseconds
+  } */
 
-  // stopClick() {
-  // ..
-  // }
+  twoDigitsNumber(value) {
+    let stringNumber = "0";
+    if (value < 10) {
+      return stringNumber + value
+    } else {
+      return String(value)
+    }
+}
 
-  // resetClick() {
-  // ..
-  // }
+stopClick() {
+    clearInterval(this.intervalId);
+}
 
-  // splitClick() {
-  // ..
-  // }
+  resetClick() {
+    this.currentTime = 0;
+  }
+
+splitClick() {
+  let splintsSec = this.twoDigitsNumber(this.getSeconds());
+  let splintsMin = this.twoDigitsNumber(this.getMinutes());
+  let splintsPrint = splintsMin + ":" + splintsSec;
+  splits.innerHTML += `<li>${splintsPrint}</li>`;
+}
 }
