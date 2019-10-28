@@ -9,12 +9,24 @@ const milDec = document.getElementById('mil-dec');
 const milUni = document.getElementById('mil-uni');
 
 function printTime() {
-
+  
+  printMinutes();
+  printSeconds();
+  
+  
 }
 
-function printMinutes() {}
+function printMinutes() {
+  
+  minDec.textContent = chronometer.twoDigitsNumber(chronometer.getMinutes()).charAt(0);
+  minUni.textContent = chronometer.twoDigitsNumber(chronometer.getMinutes()).charAt(1);
+}
 
-function printSeconds() {}
+function printSeconds() {
+  // console.log(chronometer.twoDigitsNumber(chronometer.getSeconds()).charAt(1));
+  secDec.textContent = chronometer.twoDigitsNumber(chronometer.getSeconds()).charAt(0);
+  secUni.textContent = chronometer.twoDigitsNumber(chronometer.getSeconds()).charAt(1);
+}
 
 function printMilliseconds() {}
 
@@ -45,9 +57,17 @@ function setResetBtn() {
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
   if(btnLeft.classList.contains("start")) {
+    chronometer.startClick();
+
+    setInterval(e => {
+      printTime();
+    }, 1000);
+
+
     setSplitBtn();
     setStopBtn();
   } else {
+    
     setResetBtn();
     setStartBtn();
   }
