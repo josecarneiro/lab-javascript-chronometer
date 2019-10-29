@@ -13,7 +13,7 @@ const splitsClear = document.getElementById('splits');
 function printTime() {
   printMinutes()
   printSeconds()
-//  printMilliseconds()
+  // printMilliseconds()
 }
 
 function printMinutes() {
@@ -27,8 +27,9 @@ function printSeconds() {
 }
 
 /* function printMilliseconds() {
-  milDec.innerText = chronometer.twoDigitsNumber(chronometer.getMilliseconds())[0]
-  milUni.innerText = chronometer.twoDigitsNumber(chronometer.getMilliseconds())[1]
+  //console.log(chronometer.twoDigitsNumber(chronometer.getMilliseconds()))
+  milDec.innerText = chronometer.twoDigitsNumber(chronometer.getMilliseconds())[1]
+  milUni.innerText = chronometer.twoDigitsNumber(chronometer.getMilliseconds())[2]
 } */
 
 function printSplit() {

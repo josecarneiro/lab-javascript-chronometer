@@ -4,28 +4,34 @@ const splits = document.getElementById('splits');
 class Chronometer {
   constructor() {
     this.currentTime = 0;
-    this.intervalId;
+    this.intervalId
+    // this.milli = 0;
   }
 
   startClick() {
     this.intervalId = setInterval(() => {
       this.currentTime += 1;
+      // this.milli += 1;
     }, 1000);
   }
 
   getMinutes() {
-    let minutes = Math.floor(this.currentTime / 60);
+    let minutes = Math.floor((this.currentTime / 60));
     return minutes  
   }
 
   getSeconds () {
-    let seconds = this.currentTime % 60
+    let seconds = (this.currentTime % 60)
     return seconds
   }
 
-/*   getMilliseconds() {
-    let milliseconds = this.currentTime * 1000 / 10;
-    return milliseconds
+/*    getMilliseconds() {
+    let milliseconds = this.milli
+    if (milliseconds = 999) {
+      milliseconds = 0
+    } else {
+      return milliseconds
+    }   
   } */
 
   twoDigitsNumber(value) {
@@ -39,16 +45,18 @@ class Chronometer {
 
 stopClick() {
     clearInterval(this.intervalId);
+    clearInterval(this.intervalIdMil);
 }
 
   resetClick() {
     this.currentTime = 0;
+    this.currentMil = 0;
   }
 
 splitClick() {
   let splintsSec = this.twoDigitsNumber(this.getSeconds());
   let splintsMin = this.twoDigitsNumber(this.getMinutes());
-  let splintsPrint = splintsMin + ":" + splintsSec;
+  let splintsPrint = splintsMin + ":" + splintsSec
   splits.innerHTML += `<li>${splintsPrint}</li>`;
 }
 }
