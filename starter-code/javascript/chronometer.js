@@ -27,13 +27,6 @@ class Chronometer {
     } else if (strDigits.length === 2) {
       return strDigits;
     }
-
-    // if (digits === 0) {
-    //   return '00';
-    // } else {
-    //   let strDigits = String(digits);
-    //   return (strDigits.length < 2) ? '0' + strDigits : strDigits;
-    // }
   }
 
   stopClick() {
