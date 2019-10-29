@@ -1,31 +1,51 @@
 class Chronometer {
   constructor() {
-    // ..
+    this.currentTime = 0;
+    this.intervalId = 0;
   }
 
-  // startClick() {
-  // ..
-  // }
+  startClick() {
+    this.intervalId = setInterval(() => {
+      this.currentTime++;
+    }, 10);    
+  }
 
-  // getMinutes() {
-  // ..
-  // }
+  getMinutes() {
+    return Math.floor((this.currentTime/100)/60)%60;
+    
+  }
 
-  // getSeconds() {
-  // ..
-  // }
+  getSeconds() {
+    if (this.currentTime === 0){
+      return 0;
+    } else {
+      return parseInt(Math.floor((this.currentTime/100)%60));
+    }
+  }
 
-  // twoDigitsNumber() {
-  // ..
-  // }
+  getMiliseconds()  {
+    if (this.currentTime === 0){
+      return 0;
+    } else {
+      return ((this.currentTime/100)%1).toFixed(2);
+    }  
+  }
 
-  // stopClick() {
-  // ..
-  // }
+  twoDigitsNumber(value) {
+    if(value>9){
+      return `${value}`;
+    } else {
+      return "0" + value;
+    }
+  }
 
-  // resetClick() {
-  // ..
-  // }
+  stopClick() {
+    clearInterval(this.intervalId);
+  }
+
+  resetClick() {
+    this.currentTime = 0;
+  }
 
   // splitClick() {
   // ..
