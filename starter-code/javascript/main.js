@@ -90,7 +90,7 @@ btnLeft.addEventListener('click', () => {
   //   chronometer.stopClick();
   // }
 
-  //My attempt
+  //My solution
   switch (btnLeft.className) {
     case 'btn start':
       setStartBtn();
@@ -106,7 +106,7 @@ btnRight.addEventListener('click', () => {
   //My solution
   if (btnLeft.className === 'btn stop') {
     setSplitBtn();
-  } else if (btnLeft.className === 'btn start') {
+  } else {
     setResetBtn();
     if (split.innerHTML != '') {
       clearSplits();
