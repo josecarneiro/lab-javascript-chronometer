@@ -77,19 +77,6 @@ function setResetBtn() {
 
 // Start/Stop Button
 btnLeft.addEventListener('click', () => {
-  //SOLUTION - doesn't work... The point is to check the chronometer instance not the html
-  // const isRunning = typeof chronometer.intervalId != 'undefined';
-  // if (!isRunning) {
-  //   btnLeft.innerHTML = 'STOP';
-  //   btnLeft.className = 'btn stop';
-  //   chronometer.startClick();
-  //   printTime();
-  // } else {
-  //   btnLeft.innerHTML = 'START';
-  //   btnLeft.className = 'btn start';
-  //   chronometer.stopClick();
-  // }
-
   //My solution
   switch (btnLeft.className) {
     case 'btn start':
@@ -99,6 +86,22 @@ btnLeft.addEventListener('click', () => {
       setStopBtn();
       break;
   }
+
+  // Ze's solution -- not checking the instance of the chronometer NOT the html
+  // const isRunning = typeof chronometer.intervalId !== 'undefined';
+  // if (isRunning) {
+  //   btnLeft.innerText = 'START';
+  //   btnLeft.className = 'btn start';
+  //   btnRight.innerText = 'RESET';
+  //   btnRight.className = 'btn reset';
+  //   chronometer.stopClick();
+  // } else {
+  //   btnLeft.innerText = 'STOP';
+  //   btnLeft.className = 'btn stop';
+  //   btnRight.innerText = 'SPLIT';
+  //   btnRight.className = 'btn split';
+  //   chronometer.startClick();
+  // }
 });
 
 // Reset/Split Button
@@ -112,4 +115,12 @@ btnRight.addEventListener('click', () => {
       clearSplits();
     }
   }
+
+  // Ze's solution - same as above
+  // const isRunning = typeof chronometer.intervalId !== 'undefined';
+  // if (isRunning) {
+  //   printSplit(chronometer);
+  // } else {
+  //   chronometer.resetClick();
+  // }
 });
