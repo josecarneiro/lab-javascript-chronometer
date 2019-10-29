@@ -49,7 +49,10 @@ function setSplitBtn() {}
 
 function setStartBtn() {}
 
-function setResetBtn() {}
+function setResetBtn() {
+  milUni.innerHTML = '0';
+  milDec.innerHTML = '0';
+}
 
 let miliUnits = 0;
 
@@ -80,6 +83,7 @@ btnLeft.addEventListener('click', () => {
 btnRight.addEventListener('click', () => {
   if (btnRight.innerText === 'RESET') {
     chronometer.resetClick();
+    setResetBtn();
     clearSplits();
     printTime();
   } else {

@@ -49,8 +49,12 @@ class Chronometer {
 
     let seconds = this.twoDigitsNumber(this.getSeconds());
     let minute = this.twoDigitsNumber(this.getMinutes());
+    // let miliPP = chronometer.twoDigitsNumber(miliUnits).toString();
+    // mili1 = miliPP[miliPP.length - 2]; //this cheating
+    // mili2 = miliPP[miliPP.length - 1];
+
     let childToAppend = document.createElement('li');
-    childToAppend.innerText = `${minute}:${seconds}:${miliPP}`;
+    childToAppend.innerText = `${minute}:${seconds}`;
     splits.appendChild(childToAppend);
   }
 }
