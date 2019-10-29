@@ -39,7 +39,10 @@ class Chronometer {
   } 
     
 
-  // splitClick() {
-  // ..
-  // }
-} 
+splitClick() {
+  const minutes = chronometer.getMinutes();
+  const seconds = chronometer.getSeconds();  
+  const text = `${minutes} : ${seconds}`; 
+  splits.innerText = text;
+ }
+}
