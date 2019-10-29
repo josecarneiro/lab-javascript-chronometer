@@ -7,6 +7,7 @@ let secDec = document.getElementById('sec-dec');
 let secUni = document.getElementById('sec-uni');
 const milDec = document.getElementById('mil-dec');
 const milUni = document.getElementById('mil-uni');
+const li = document.getElementById('splits');
 
 function printMinutes() {
   let getMinutes = chronometer.twoDigitsNumber(chronometer.getMinutes());
@@ -21,14 +22,24 @@ function printSeconds() {
   secUni.innerText = getSeconds.charAt(1);
 };
 
+let a;
+let b;
 function printTime() {
-  setInterval(()=> {printSeconds()}, 1);
-  setInterval(()=> {printMinutes()}, 1);
+  a = setInterval(() => { printSeconds() }, 1);
+  b = setInterval(() => { printMinutes() }, 1);
+  return a, b
 };
+
+function printSplit() {
+  li.innerHTML += `<li>
+  <span>${chronometer.twoDigitsNumber(chronometer.getMinutes())} minutes ${chronometer.twoDigitsNumber(chronometer.getSeconds())} seconds<span> 
+</li>
+
+  `
+ }
 
 /*function printMilliseconds() { }
 
-function printSplit() { }
 
 function clearSplits() { }*/
 
@@ -61,9 +72,11 @@ btnLeft.addEventListener('click', () => { //I will need to do a setInterval here
     chronometer.startClick();
   } else if (btnLeft.innerText === "STOP") {
     setStartBtn();
-    //clearInterval(printTime().setInterval());  --> what I need to do to stop the time is clear interval from print time
-    chronometer.stopClick();  
-    console.log(chronometer.currentTime)}
+    clearInterval(a);
+    clearInterval(b);  //--> what I need to do to stop the time is clear interval from print time
+    chronometer.stopClick();
+    console.log(chronometer.currentTime)
+  }
 });
 
 // Reset/Split Button
@@ -74,9 +87,8 @@ btnRight.addEventListener('click', () => {
   }
   else {
     setResetBtn();
+    printSplit();
     chronometer.stopClick();
-    console.log(chronometer.currentTime)
-    
   }
 }
 );
