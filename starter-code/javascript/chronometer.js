@@ -16,7 +16,7 @@ class Chronometer {
   }
 
   getSeconds() {
-    let remainingSecs = Math.round(this.currentTime - (this.getMinutes() * 60));
+    let remainingSecs = Math.floor(this.currentTime - (this.getMinutes() * 60));
     return remainingSecs;
   }
 
@@ -45,6 +45,6 @@ class Chronometer {
   }
 
   splitClick() {
-
+    return `${this.twoDigitsNumber(this.getMinutes())}:${this.twoDigitsNumber(this.getSeconds())}`;
   }
 }
