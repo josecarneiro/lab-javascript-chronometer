@@ -24,7 +24,12 @@ function printSeconds() {
 
 function printMilliseconds() {}
 
-function printSplit() {}
+function printSplit() {
+  // const for minutes
+  // const for secs
+  //const text = minutes:seconds
+
+}
 
 function clearSplits() {}
 
@@ -47,11 +52,11 @@ btnLeft.addEventListener('click', () => {
       printSeconds();
     }, 1000);
     
-    
-
   } else if (btnLeft.innerText === "STOP") {
     btnLeft.innerText = "START";
-    btnLeft.className = "btn start"
+    btnLeft.className = "btn start";
+    chronometer.stopClick();
+    
   }
 });
 
@@ -60,8 +65,10 @@ btnRight.addEventListener('click', () => {
   if (btnRight.innerText === "RESET") {
     btnRight.innerText = "SPLIT";
     btnRight.className = "btn split";
+    chronometer.resetClick();
   } else if (btnRight.innerText === "SPLIT") {
     btnRight.innerText = "RESET";
     btnRight.className = "btn reset";
+    chronometer.splitClick();
   }
 });
